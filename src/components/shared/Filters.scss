@@ -1,0 +1,90 @@
+.container {
+  padding: 32px;
+}
+
+.select-box {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+
+  .selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    color: #f5f6fa;
+    position: relative;
+    padding: 12px 24px;
+    cursor: pointer;
+
+    &.rotate {
+      &::after {
+        transform: rotateX(180deg);
+        top: -8px;
+      }
+    }
+
+    &::after {
+      content: "";
+      background: url("../../assets/arrow-down.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      position: absolute;
+      height: 100%;
+      width: 26px;
+      right: 10px;
+      top: 8px;
+
+      transition: all 0.4s;
+    }
+  }
+
+  .options-container {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+
+    :hover {
+      background: #414b57;
+    }
+
+    &.active {
+      max-height: 260px;
+      opacity: 1;
+      overflow-y: scroll;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      background: #0d141f;
+      border-radius: 0 8px 8px 0;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #525861;
+      border-radius: 8px 8px 8px 8px;
+    }
+  }
+
+  .option {
+    padding: 12px 24px;
+    // cursor: pointer;
+
+    &.active {
+      background: #414b57;
+    }
+
+    .radio {
+      display: none;
+    }
+  }
+
+  label {
+    cursor: pointer;
+  }
+}
